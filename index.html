@@ -1,0 +1,435 @@
+<!Doctype html>
+<html>
+<style>
+img {
+  max-width:100%;
+}
+
+body {
+  font-family: "Impact";
+  background:#46A2E1;
+  margin:2%;
+}
+    
+header {
+  grid-area:header;
+  background:#46A2E1;
+ }
+
+header h1 {
+  font-size:6vw;
+  color:#001B87;
+  font-family:"Impact";
+  text-shadow: 2px 2px 5px red;
+  margin: 2px 0;
+}
+
+header h4 {
+  font-size:3vw;
+  color:white;
+  text-shadow: 2px 2px 5px black;
+  margin:1em 0 0 0;
+}
+header a {
+	text-decoration:none;
+	color: navy;
+}
+header p {
+	color:white;
+}
+nav {
+    grid-area:nav;
+    background-color:#DA1A1A;
+    font-size:125%;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    z-index:999;
+}
+main {
+	background-color:#46A2E1;
+	color:white;
+	grid-area:main;
+}
+main a {
+	color: white;
+	font-family:bold;
+}
+
+.first {
+    grid-area:first;
+    margin-left:0;
+}
+
+.second {
+    grid-area:second;
+}
+
+.third {
+    grid-area:third;
+}
+
+.fourth {
+    grid-area:fourth;
+}
+    
+nav ul {
+   list-stle-type: none;
+  padding:0;
+  margin:0;
+  display: inline-block;
+	overflow:hidden;
+	background-color:#DA1A1A;
+	
+}
+nav li {
+  padding:10px 10px;
+  list-style-type:none;
+  font-size:1.5em;
+  font-weight:bold;
+  display:inline-block;
+	float:left;
+}
+nav li a {
+	display:block;
+	color:white;
+	text-align: center;
+	padding:16px;
+  text-decoration:none;
+  float:left;
+  border-right: 2px solid;
+	
+}
+li a:hover {
+  color:#001B87;
+}
+
+#navwrapper {
+    display:grid;
+    grid-template-areas:
+    "first" 
+    "second"
+    "third"
+    "fourth" 
+    "fifth";
+    }
+    
+main {
+  grid-area:main;
+  background:#46A2E1;
+  padding:5px;
+}
+
+main h2 {
+  text-align:center;
+  color:white;
+  margin:5%;
+}
+
+main p {
+  color:white;
+  padding:2% 4%;
+  font-size:1em;
+}
+
+aside{
+background:#46A2E1;
+color:white;
+grid-area:aside;
+
+}
+aside a{
+color: white;
+}
+aside a:hover{
+Color: #001B87;
+}
+aside li{
+padding:10px 0;
+}
+
+.top {
+	grid-area:top;
+}
+.middle {
+	grid-area:middle;
+}
+
+.bottom {
+	grid-area:bottom;
+}
+section{
+	grid-area:section;
+}
+figure {
+	background:rgba(0,0,0,.2);
+	margin:0;
+	text-align:center;
+}
+.fig1{
+grid-area:fig1;
+margin:10px;
+width: 100px;
+padding: 10px;
+}
+
+.fig2{
+grid-area:fig2;	
+}
+figcaption{
+color:navy;
+padding:5px;
+font-weight:bold;
+padding:5px;
+}
+footer {
+  grid-area:footer;
+  background:#46A2E1;
+  padding:5px;
+  text-align:center;
+}
+
+footer p {
+  font-size:1em;
+  color:white;
+  margin:0;
+}
+/*---------------------------Mobile Layout Styles----------------------------*/
+.wrapper1 { /*index.html*/
+    display: grid;
+    margin:0;
+    grid-gap: .5em;
+    grid-template-areas:
+    "nav"
+    "header"
+    "main"
+    "aside"
+    "footer";
+  }
+
+/*This stuff is for the hamburger menu*/
+.toggleNav {
+    display:grid; /*This is what allows the hamburger icon and "Menu" to display*/
+    text-align:center;
+    font-size:1.5em;
+    font-weight:bold;
+    padding:10px;
+    }
+
+#flex-nav ul {
+    display: none; /*jQuery toggles the nav from to this class to the .open when clicked*/
+    text-align:center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+ 
+#flex-nav ul.open { /*.open is the class that gets toggled when clicked (with help from the jQuery code)*/
+    display:grid;
+    }
+    
+#flex-nav li {
+    padding-left:10px;
+    padding-top:10px;
+    }
+#flex-nav a {
+    color:white;
+    text-decoration:none;
+    }
+
+#flex-nav a:hover {
+    color:mediumspringgreen;
+    }
+
+
+/*-----------------------Tablet Media Query------------------------*/
+
+
+/* Below will change from hamburger menu to side navigation*/
+  
+.toggleNav {
+    display: none; /*Makes the hamburger icon with the word "Menu" to disappear at this screen size*/
+  }
+  
+#flex-nav ul {
+    display:grid;
+    text-align:left;
+  }
+
+#flex-nav li {
+    padding-left:10px;
+    padding-top:10px;
+  } 
+
+	}
+
+@media only screen and (min-width: 480px)  {
+.wrapper1 { /*index.html*/
+    grid-template-columns: 45% auto;
+    grid-template-areas:
+    "nav nav"
+    "header header"
+    "main aside"
+    "footer footer";
+    }
+} 
+
+/*-----------------------Desktop Media Query------------------------*/
+@media only screen and (min-width: 960px)  {
+
+.container1 { /*for index.html*/
+  grid-template-columns:auto 1fr 25%;
+  grid-template-areas:
+    "header header fig1"
+    "nav nav nav"
+    "main main aside"
+    "footer footer aside";
+    }
+
+.container2 { /*for blog.html*/
+  display: grid;
+  grid-template-columns:auto 1fr 1.5fr;
+  grid-gap:.5em;
+  margin:1%;
+  grid-template-areas:
+    "header header header"
+    "nav nav top"
+    "main main middle"
+    "main main bottom"
+    "footer footer footer";   
+    }
+	
+ .container3 { /*for special.html*/
+  display: grid;
+  grid-template-columns:auto 1fr;
+  grid-gap:.5em;
+  margin:1%;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+	  "main main"
+    "fig2 fig2"
+    "footer footer";   
+    }
+
+.container4 { /*for destination.html and contact*/
+  display: grid;
+  grid-template-columns:auto 1fr;
+  grid-gap:.5em;
+  margin:1%;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "main main"
+    "footer footer";   
+    }
+ .nestedgrid{
+  display:grid;
+  grid-template-areas:
+  "section fig1";
+	}
+.nestedgrid2 {
+	display:grid;
+	grid-template-areas:
+	"div1 div2";
+	}
+}
+
+@media only screen and (min-width: 960px)   {
+     
+.wrapper1 { /*index.html*/
+    grid-template-columns: 60% auto;
+    grid-template-areas:
+    "nav nav"        
+    "header header"
+    "main aside"
+    "footer footer";
+    }
+    
+#navwrapper {
+    display:grid;
+    grid-template-areas:
+    "first second third fourth fifth";
+    }
+    
+.toggleNav {
+    display: none; /*Makes the hamburger icon with the word "Menu" to disappear at this screen size*/
+  }
+  
+#flex-nav ul {
+    display:grid;
+    text-align:center;
+  }
+
+#flex-nav li {
+    
+    padding-top:10px;
+    }
+    
+}
+</style>
+<head>
+<title> Quality Dry Cleaners</title>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+ <div class="container1">
+      <figure class="fig1">
+			    <img src="facebook.jpg" alt="Facebook Logo">
+			    <figcaption>Follow Us On Facebook!</figcaption>
+								       </figure>
+<div class="wrapper1">
+<header class="box headerwrapper">
+<h1><a href="index.html"> Quality Dry Cleaners</a><h1>
+<h4> Pick Up and Delivery Service Available</h4>
+</div>
+</header>
+     <nav id="flex-nav">
+<a href="#" class="toggleNav">&#9776; Menu</a>
+<ul id="navwrapper">
+<li class="first"><a href="index.html">Home</a></li>
+<li class="second"><a href="service.html">Services</a></li>
+<li class="third"><a href="coupon.html">Coupons</a></li>
+<li class="forth"><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+	
+<main>
+<h2> Same Day Service Available! </h2>
+<h2> We have 5 convenient locations to accomodate all your dry cleaning and laundry needs.
+  Whether it's your wedding dress or a shirt, Quality Dry Cleaners has you covered!</h2>
+</main>
+<aside>
+<h2> Contact Us Today!</h2>
+<p>Contact Name- Steve Schram, Owner</p>
+  <p> thequalitydrycleaners@gmail.com</p>
+  <ul>
+<li> Kettering <br>1855 E. Stroop Rd.
+Kettering, OH 45429-5056
+<br>937-299-2099</li>
+<li>Bellbrook  <br>112 W. Franklin St.
+Bellbrook, OH 45305
+<br>937-848-0054</li>
+<li>Centerville<br>15 W. Whipp Rd.
+Centerville, OH 45459
+<br>937-434-3553</li>
+<li>Beavercreek<br>1285 N Fairfield Rd.
+Beavercreek, OH 45432
+<br>937-203-0581</li>
+<li>Oakwood/Dayton<br>964 Patterson Rd.
+Dayton, OH 45419
+<br>937-299-2071</li>
+</ul>
+<h2> Business Hours:</h2>
+  <p>Kettering Location Only</p>
+<p>Monday - Friday: 7:00am to 7:00pm
+Saturday: 9:00am to 3:00pm</p>
+  <p>All Other Locations</p>
+<p>Monday - Friday: 7:30am to 7:00pm
+Saturday: 9:00am to 3:00pm</p>
+</aside>
+</div>
+</body>
+</html>
